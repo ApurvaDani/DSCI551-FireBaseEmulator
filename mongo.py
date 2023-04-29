@@ -17,7 +17,7 @@ class Mongo:
         self.collection = self.db[self.parsedQuery['collection']]
 
     def get(self):
-        ##print(self.parsedQuery)
+        
         result = {}
         try:
             queryPath = self.parsedQuery['queryPath']

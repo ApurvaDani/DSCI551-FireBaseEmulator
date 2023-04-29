@@ -29,7 +29,6 @@ def route_get(x):
 
 @app.route('/<path:x>', methods=['PUT'])
 def route_put(x):
-    print('Request received in put')
     data = request.get_json()
     query = Query(x)
     parsedQuery = query.parseQuery()
@@ -49,11 +48,9 @@ def route_put(x):
 
 @app.route('/<path:x>', methods=['POST'])
 def route_post(x):
-    print('Request received in post')
     data = request.get_json()
     query = Query(x)
     parsedQuery = query.parseQuery()
-    print('PQ', parsedQuery)
     if not parsedQuery['status']:
         return "null"
 
@@ -89,14 +86,6 @@ def route_patch(x):
     
     return result['doc']
 
-# @app.route('/<path:x>', methods=['POST'])
-# def route_post(x):
-#     return "post"
-
-# @app.route('/<path:x>', methods=['PATCH'])
-# def route(x):
-#     return "patch"
-
 @app.route('/<path:x>', methods=['DELETE'])
 def route_delete(x):
     
@@ -113,8 +102,6 @@ def route_delete(x):
         return "null"
     
     return "null"
-
-# curl -X GET 'http://localhost:5050/apartments/200.json
     
 if __name__ == "__main__":
     app.run(port=5050, debug=True)
